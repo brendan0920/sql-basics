@@ -20,7 +20,7 @@ CREATE TABLE Sales_Denormalized (
 	SalesDate date NOT NULL,
 	SalesAmount decimal(10,2),
 	Customer varchar(50)
-)
+);
 
 CREATE TABLE Region(
 	Id int PRIMARY KEY IDENTITY(1,1),
