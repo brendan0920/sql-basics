@@ -22,16 +22,22 @@ CREATE TABLE Sales_Denormalized (
 	Customer varchar(50)
 );
 
+--Created Unique name
 CREATE TABLE Region(
 	Id int PRIMARY KEY IDENTITY(1,1),
+	--Name varchar(15) NOT NULL UNIQUE
 	Name varchar(15) NOT NULL
+	CONSTRAINT UQ_Region_Name UNIQUE (Name)
 );
 
+--Created Unique name
 CREATE TABLE Customer(
 	Id int PRIMARY KEY IDENTITY(1,1),
-	Name varchar(50) NOT NULL
+	Name varchar(50) NOT NULL,
+	CONSTRAINT UQ_Customer_Name UNIQUE (Name)
 );
 
+----Created FK 
 CREATE TABLE SalesPerson(
 	Id int PRIMARY KEY IDENTITY(1,1),
 	FirstName varchar(25) NOT NULL,
