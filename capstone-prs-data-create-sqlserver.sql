@@ -1,12 +1,16 @@
 USE MASTER;
+GO
 
 DROP DATABASE IF EXISTS capstone_prs;
+GO
 
 CREATE DATABASE capstone_prs;
+GO
 
 USE capstone_prs;
+GO
 
-CREATE TABLE User (
+CREATE TABLE [User] (
 	id				int				PRIMARY KEY IDENTITY(1,1),
 	username		varchar(225)	NOT NULL,
 	password		varchar(225)	NOT NULL,
@@ -16,7 +20,7 @@ CREATE TABLE User (
 	email			varchar(225)	NOT NULL,
 	reviewer		BIT				DEFAULT 0,
 	admin			BIT				DEFAULT 0,
-	CONSTRAINT UQ_User_user_info UNIQUE(username, password,firstName, lastName, phoneNumber, email)
+	CONSTRAINT UQ_User_user_info UNIQUE(username, password, firstName, lastName, phoneNumber, email)
 );
 
 CREATE TABLE Request (
@@ -30,7 +34,7 @@ CREATE TABLE Request (
 	total				decimal(18,2)	NOT NULL,
 	submittedDate		datetime2		NOT NULL,
 	reasonForRejection	varchar(225)	NOT NULL,
-	FOREIGN KEY (userId) REFERENCES User(id),
+	FOREIGN KEY (userId) REFERENCES [User](id),
 	CONSTRAINT UQ_Request_userId UNIQUE(userId)
 );
 
@@ -67,8 +71,5 @@ CREATE TABLE LineItem(
 	FOREIGN KEY (productId) REFERENCES Product(id),
 	CONSTRAINT UQ_LineItem_request_product_Id UNIQUE(requestId, productId)
 );
-
-
-
 
 
