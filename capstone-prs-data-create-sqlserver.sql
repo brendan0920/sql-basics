@@ -31,7 +31,7 @@ CREATE TABLE Request (
 	dateNeeded			DATE			NOT NULL,
 	deliveryMode		varchar(225)	NOT NULL,
 	status				varchar(225)	NOT NULL,
-	total				decimal(18,2)	NOT NULL,
+	total				float			NOT NULL,
 	submittedDate		datetime2		NOT NULL,
 	reasonForRejection	varchar(225)	NOT NULL,
 	FOREIGN KEY (userId) REFERENCES [User](id),
@@ -56,7 +56,7 @@ CREATE TABLE Product (
 	vendorId		int				NOT NULL,
 	partNumber		varchar(50)	NOT NULL,
 	name			varchar(25)	NOT NULL,
-	price			decimal(18,2)	NOT NULL,
+	price			float		NOT NULL,
 	unit			varchar(25)	NOT NULL,
 	FOREIGN KEY (vendorId) REFERENCES Vendor(id),
 	CONSTRAINT UQ_Product_vendorId UNIQUE(vendorId)
