@@ -12,12 +12,12 @@ GO
 
 CREATE TABLE [User] (
 	id				int				PRIMARY KEY IDENTITY(1,1),
-	username		varchar(225)	NOT NULL,
-	password		varchar(225)	NOT NULL,
-	firstName		varchar(225)	NOT NULL,
-	lastName		varchar(225)	NOT NULL,
-	phoneNumber		varchar(225)	NOT NULL,
-	email			varchar(225)	NOT NULL,
+	username		varchar(25)	NOT NULL,
+	password		varchar(25)	NOT NULL,
+	firstName		varchar(25)	NOT NULL,
+	lastName		varchar(25)	NOT NULL,
+	phoneNumber		varchar(20)	NOT NULL,
+	email			varchar(50)	NOT NULL,
 	reviewer		BIT				DEFAULT 0,
 	admin			BIT				DEFAULT 0,
 	CONSTRAINT UQ_User_user_info UNIQUE(username, password, firstName, lastName, phoneNumber, email)
@@ -41,23 +41,23 @@ CREATE TABLE Request (
 CREATE TABLE Vendor (
 	id				int				PRIMARY KEY IDENTITY(1,1),
 	code			varchar(225)	NOT NULL,
-	name			varchar(225)	NOT NULL,
-	address			varchar(225)	NOT NULL,
-	city			varchar(225)	NOT NULL,
-	state			varchar(225)	NOT NULL,
-	zip				varchar(225)	NOT NULL,
-	phoneNumber		varchar(225)	NOT NULL,
-	email			varchar(225)	NOT NULL,
+	name			varchar(25)	NOT NULL,
+	address			varchar(100)	NOT NULL,
+	city			varchar(20)	NOT NULL,
+	state			varchar(15)	NOT NULL,
+	zip				varchar(10)	NOT NULL,
+	phoneNumber		varchar(20)	NOT NULL,
+	email			varchar(50)	NOT NULL,
 	CONSTRAINT UQ_Vendor_code_name UNIQUE(code, name)
 );
 
 CREATE TABLE Product (
 	id				int				PRIMARY KEY IDENTITY(1,1),
 	vendorId		int				NOT NULL,
-	partNumber		varchar(225)	NOT NULL,
-	name			varchar(225)	NOT NULL,
+	partNumber		varchar(50)	NOT NULL,
+	name			varchar(25)	NOT NULL,
 	price			decimal(18,2)	NOT NULL,
-	unit			varchar(225)	NOT NULL,
+	unit			varchar(25)	NOT NULL,
 	FOREIGN KEY (vendorId) REFERENCES Vendor(id),
 	CONSTRAINT UQ_Product_vendorId UNIQUE(vendorId)
 );
