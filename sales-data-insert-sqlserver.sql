@@ -36,10 +36,11 @@ VALUES
 ('East'),
 ('Westh');
 
+/*
 INSERT INTO Region (Name)
 SELECT DISTINCT Region
 	FROM Sales_Denormalized;
-
+*/
 
 
 -- Insert the data into the Customer table
@@ -54,6 +55,7 @@ VALUES
 ('Sigma Solutionsp'),
 ('Zeta Partners');
 
+/*
 INSERT INTO Customer(Name)
 SELECT DISTINCT Customer
 	FROM Sales_Denormalized;
@@ -62,9 +64,9 @@ SELECT *
 	FROM Customer;
 SELECT *
 	FROM Region;
+*/
 
 
-/*
 -- Insert the data into the SalesPerson table
 INSERT INTO SalesPerson (FirstName, LastName, RegionId)
 VALUES
@@ -73,21 +75,23 @@ VALUES
 ('Alice', 'Brwon', 3),
 ('Bob', 'Johnson', 4),
 ('Eve', 'Davis', 1);
-*/
+
 
 --Use a INSERT/SELECT Statement
 -- LastName, FirstName come from Sales_Denormalized
 --RegionId come from Region Table
 -- Query to retrun FirstName, LastName, RegionId?
+/*
 INSERT INTO SalesPerson (FirstName, LastName, RegionId)
 SELECT DISTINCT SalesPersonFirstName, SalesPersonLastName, r.Id AS RegionId
 	FROM Sales_Denormalized sd
 	JOIN Region r
 		ON sd.Region = R.Name;
-
+*/
 
 --CRUD; CREATE READ UPDATE DELETE
 -- DELETE STATEMENT
+/*
 SELECT *
 	FROM Sales;
 
@@ -95,7 +99,7 @@ SELECT *
 DELETE
 	FROM SalesPerson
 	WHERE Id = 1;
-
+	
 
 --Insert Sales Data
 --SalesPersonId (SalesPerson.Id)
@@ -124,8 +128,8 @@ SELECT 'Join', sp.FirstName, sp.LastName, r.Name AS RegionName, SalesDate, Sales
 SELECT 'Raw Data', SalesPersonFirstName, SalesPersonLastName, Region, SalesDate, SalesAmount, Customer
 	FROM Sales_Denormalized
 	ORDER BY  SalesAmount;
+	*/
 
-/*
 -- Insert the data into the Sales table
 INSERT INTO Sales (SalesPersonId, SalesDate, SalesAmount, CustomerId)
 VALUES
@@ -152,8 +156,9 @@ VALUES
 (2,	'2024-08-21', 9600, 8),
 (3,	'2024-08-20', 2300, 4),
 (4,	'2024-08-21', 5600, 5);
-*/
 
+/*
 SELECT *
 	FROM SalesPerson
 	ORDER BY Id;
+	*/
